@@ -1,0 +1,4 @@
+RINOMINARE UNA TABLE:
+
+ALTER TABLE dogs
+RENAME to animal
