@@ -1,0 +1,3 @@
+GRANT SELECT, UPDATE ON bookstore.Books TO 'martin'@'localhost';
+
+REVOKE DELETE ON bookstore.Books FROM 'martin'@'localhost';
