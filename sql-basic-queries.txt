@@ -1,0 +1,28 @@
+- Per prima cosa ho importato il file tested.csv in SQLite;
+
+- Successivamente ho rinominato le COLUMN come chiesta dallo SCHEMA:
+    ALTER TABLE tested RENAME COLUMN c1 TO PassengerId;
+    ...
+    ALTER TABLE tested RENAME COLUMN c12 TO Embarked;
+
+- Passeggeri femminili soppravvissuti con un età superiore a 30 anni:
+    SELECT * FROM tested
+    WHERE Sex = 'female' AND Survived = 1 AND Age > 30; 
+
+- Età media degli uomini che non sono soppravvissuti:
+    SELECT AVG(Age) AS AverageAge
+    FROM tested
+    WHERE Sex = 'male' AND Survived = 0;
+
+- Passeggeri che hanno speso tra $20 e $50 per il biglietto e sono saliti a bordo dalla porta C:
+    SELECT * FROM tested
+    WHERE Fare BETWEEN 20 AND 50 AND Embarked = 'C';
+
+- Numero totale di sopravvissuti nella prima classe:
+    SELECT COUNT(*) AS TotalSurvivorsFirstClass
+    FROM tested
+    WHERE Survived = 1 AND Pclass = 1;
+
+- Informazioni dei passeggeri che sono saliti a bordo da Cherbourg (porta 'C') e hanno speso più di $75 per i loro biglietti:
+    SELECT * FROM tested
+    WHERE Embarked = 'C' AND Fare > 75;
